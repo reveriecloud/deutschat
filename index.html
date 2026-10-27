@@ -6,112 +6,160 @@
 <title>German A1 for Work</title>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#eef1f4;--card:#fff;--ink:#14213d;--mute:#5b6678;--line:#d3d9e1;--acc:#ffc400;--accink:#14213d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1624;--card:#18233a;--ink:#eef1f6;--mute:#9aa6bb;--line:#2b3955;--acc:#ffc400;--accink:#14213d}}
-:root[data-theme="dark"]{--bg:#0f1624;--card:#18233a;--ink:#eef1f6;--mute:#9aa6bb;--line:#2b3955;--acc:#ffc400;--accink:#14213d}
+:root{--bg:#eef1f4;--card:#fff;--ink:#14213d;--mute:#5b6678;--line:#d3d9e1;--acc:#ffc400;--accink:#14213d;--ok:#1b7f4b;--bad:#b3261e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1624;--card:#18233a;--ink:#eef1f6;--mute:#9aa6bb;--line:#2b3955;--ok:#5fd394;--bad:#ff8a80}}
+:root[data-theme="dark"]{--bg:#0f1624;--card:#18233a;--ink:#eef1f6;--mute:#9aa6bb;--line:#2b3955;--ok:#5fd394;--bad:#ff8a80}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Archivo,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
-main{max-width:720px;margin:0 auto;padding:20px 16px 48px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Archivo,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}
+main{max-width:720px;margin:0 auto;padding:20px 16px 56px}
 h1{font-size:clamp(28px,6vw,40px);font-weight:800;margin:8px 0 4px;letter-spacing:-.02em}
+h2{font-size:clamp(22px,5vw,28px);margin:6px 0 4px;font-weight:800}
+h3{font-size:17px;margin:26px 0 8px}
 .sub{color:var(--mute);margin:0 0 18px;max-width:60ch}
 nav{display:flex;gap:6px;margin-bottom:18px;border-bottom:2px solid var(--line)}
 nav button{flex:1;background:none;border:0;color:var(--mute);font:600 15px/1 Archivo,system-ui,sans-serif;padding:12px 4px;cursor:pointer;border-bottom:4px solid transparent;margin-bottom:-2px}
 nav button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--acc)}
 button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
-.bar{height:10px;background:var(--line);border-radius:5px;overflow:hidden;margin:6px 0 4px}
+.bar{height:10px;background:var(--line);border-radius:5px;overflow:hidden;margin:6px 0 16px}
 .bar i{display:block;height:100%;background:var(--acc);width:0;transition:width .3s}
-.week{background:var(--card);border:1px solid var(--line);border-radius:10px;margin:0 0 10px}
-.week summary{list-style:none;cursor:pointer;display:flex;gap:12px;align-items:center;padding:14px}
-.week summary::-webkit-details-marker{display:none}
-.week input{width:22px;height:22px;accent-color:#14213d;flex:none}
-.wk{font-weight:800;min-width:56px}
-.wt{font-weight:600}
-.week .body{padding:0 14px 14px 48px;color:var(--mute);font-size:15px}
-.week .body b{color:var(--ink)}
-.week.done .wt{text-decoration:line-through;color:var(--mute)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.wk{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;text-align:left;color:var(--ink);font:inherit;cursor:pointer}
+.wk b{display:block;font-size:13px;color:var(--mute)}
+.wk span{font-weight:600}
+.wk.done{border-color:var(--ok)}
+.wk.done b::after{content:" · done";color:var(--ok)}
+.say{background:var(--acc);color:var(--accink);border:0;border-radius:6px;padding:8px 11px;font:600 15px Archivo,system-ui,sans-serif;cursor:pointer;text-align:left}
+.say small{font-weight:400;opacity:.85;display:block;font-size:13px}
+.words{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
+.box{background:var(--card);border-left:4px solid var(--acc);padding:12px 14px;border-radius:0 8px 8px 0}
+.ex{display:flex;gap:10px;align-items:center;margin:0 0 8px;flex-wrap:wrap}
+.ex span{color:var(--mute);font-size:15px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin:0 0 10px}
+.q p{margin:0 0 8px;font-weight:600}
+.opt{display:block;width:100%;text-align:left;background:none;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0 0 6px;color:var(--ink);font:inherit;cursor:pointer}
+.opt.ok{border-color:var(--ok);color:var(--ok);font-weight:600}
+.opt.bad{border-color:var(--bad);color:var(--bad)}
+.row{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.btn{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px 14px;font:600 14px Archivo,system-ui,sans-serif;cursor:pointer}
+.btn.main{background:var(--acc);color:var(--accink);border:0}
 .snd{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
 .snd .l{font-size:30px;font-weight:800;line-height:1}
 .snd .h{color:var(--mute);font-size:14px;margin:6px 0 10px}
 .snd .w{display:flex;flex-wrap:wrap;gap:6px}
-.say{background:var(--acc);color:var(--accink);border:0;border-radius:6px;padding:7px 10px;font:600 14px Archivo,system-ui,sans-serif;cursor:pointer}
-.say small{font-weight:400;opacity:.8}
-.note{background:var(--card);border-left:4px solid var(--acc);padding:12px 14px;border-radius:0 8px 8px 0;margin:0 0 16px;font-size:15px}
-.fc{background:var(--card);border:1px solid var(--line);border-radius:14px;min-height:190px;padding:24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;width:100%;color:var(--ink);font:inherit}
-.fc .de{font-size:clamp(24px,5vw,32px);font-weight:800}
-.fc .en{font-size:20px;color:var(--mute)}
-.fc .hint{font-size:13px;color:var(--mute);margin-top:14px}
-.row{display:flex;gap:8px;margin-top:12px;align-items:center;flex-wrap:wrap}
-.row button{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px 14px;font:600 14px Archivo,system-ui,sans-serif;cursor:pointer}
-.row .say{border:0;background:var(--acc);color:var(--accink)}
-.cnt{margin-left:auto;color:var(--mute);font-size:14px}
 [hidden]{display:none!important}
-.tips li{margin:6px 0}
 </style>
 </head>
 <body>
 <main>
 <h1>German A1 for work</h1>
-<p class="sub">12 weeks, about 45 minutes a day. Tick each week when done. Tap any yellow button to hear it spoken.</p>
+<p class="sub">A 12-week course from zero. Each week has words, a grammar note, sentences to say aloud, a mini dialogue, and a four-question quiz. Tap yellow buttons to hear German.</p>
 <nav role="tablist">
-<button role="tab" aria-selected="true" data-t="plan">Plan</button>
-<button role="tab" aria-selected="false" data-t="sound">Pronunciation</button>
-<button role="tab" aria-selected="false" data-t="cards">Work phrases</button>
+<button role="tab" aria-selected="true" data-t="course">Course</button>
+<button role="tab" aria-selected="false" data-t="sound">Sounds</button>
 </nav>
 
-<section id="plan">
-<div><b id="pct">0 of 12 weeks</b><div class="bar"><i id="fill"></i></div></div>
-<div id="weeks" style="margin-top:14px"></div>
-<h2 style="font-size:18px;margin:24px 0 6px">Daily 45 minutes</h2>
-<ul class="tips">
-<li><b>20 min</b> lesson: DW Nicos Weg (A1) or the week’s topic.</li>
-<li><b>10 min</b> flashcards: Anki or the Work phrases tab. Always learn nouns with der/die/das.</li>
-<li><b>10 min</b> speak aloud: repeat phrases, shadow Easy German videos.</li>
-<li><b>5 min</b> write 3 sentences about your workday.</li>
-</ul>
+<section id="course">
+<div id="home">
+<b id="pct"></b><div class="bar"><i id="fill"></i></div>
+<div class="grid" id="list"></div>
+<p class="sub" style="margin-top:18px">Study about 45 minutes a day: read the lesson, say every sentence aloud, then take the quiz. Add Anki for extra vocabulary review.</p>
+</div>
+<div id="lesson" hidden></div>
 </section>
 
 <section id="sound" hidden>
-<p class="note">German is mostly spelled the way it sounds. Learn these rules once and you can read almost any word. Rough English hints are approximate; listen and copy.</p>
+<div class="box" style="margin-bottom:14px">German is mostly spelled the way it sounds. Learn these rules once. English hints are approximate; listen and copy.</div>
 <div class="grid" id="sgrid"></div>
-<p class="note" style="margin-top:16px" id="novoice" hidden>No German voice found on this device. Install a German voice in your system speech settings, or listen on Forvo or DW Learn German.</p>
-</section>
-
-<section id="cards" hidden>
-<button class="fc" id="card" aria-live="polite"></button>
-<div class="row">
-<button id="prev">Back</button>
-<button id="next">Next</button>
-<button class="say" id="cs">Hear it</button>
-<span class="cnt" id="cnt"></span>
-</div>
+<p class="box" id="novoice" style="margin-top:14px" hidden>No German voice found on this device. Install a German voice in your system speech settings, or listen on Forvo or DW Learn German.</p>
 </section>
 </main>
 
 <script>
-const WEEKS=[
-["Sounds and greetings","Alphabet, umlauts, ch, r. <b>Hallo, ich heiße… Ich komme aus Indonesien. Freut mich.</b> Spell your name aloud."],
-["Numbers, time, days","Numbers 0–100, days, months, clock time. <b>Es ist neun Uhr.</b> Verb <b>sein</b>: ich bin, du bist, er ist."],
-["Nouns and articles","der / die / das, plural basics, <b>haben</b>. Office words: der Computer, die E-Mail, das Büro, der Termin."],
-["Verbs and questions","Regular present tense, verb in position 2. W-questions: <b>Wer? Was? Wo? Wann? Wie?</b> Describe your job."],
-["Negation and accusative","<b>nicht</b> vs <b>kein</b>. Accusative: <b>Ich brauche einen Stift.</b> Ordering a drink or lunch."],
-["Modal verbs and polite requests","<b>können, müssen, wollen, möchten.</b> <b>Können Sie das wiederholen?</b> <b>Ich möchte einen Termin.</b>"],
-["Separable verbs and routine","<b>aufstehen, anfangen, anrufen.</b> Daily schedule at work: <b>Ich fange um 8 Uhr an.</b>"],
-["Phone and email basics","Answering a call, spelling names, short emails. <b>Guten Tag, hier spricht…</b> <b>Mit freundlichen Grüßen.</b>"],
-["Places and directions","Left, right, straight; transport; <b>Wo ist die Toilette?</b> <b>Wie komme ich zum Bahnhof?</b>"],
-["Shopping and prices","Euro prices, food, quantities. <b>Was kostet das?</b> <b>Ich nehme das.</b> Paying: bar oder mit Karte."],
-["Writing and forms","Fill in a form (Name, Adresse, Geburtsdatum), write a 30-word message, review all grammar."],
-["Mock test and review","Do a full Goethe Start Deutsch 1 sample test (reading, listening, writing, speaking). Fix weak areas."]
+const W=[
+{t:"Sounds and greetings",g:"Greet people, say your name and where you are from.",
+v:[["Hallo","hello"],["Guten Morgen","good morning"],["Guten Tag","good day (formal hello)"],["Guten Abend","good evening"],["Tschüss","bye"],["Auf Wiedersehen","goodbye (formal)"],["Danke","thank you"],["Bitte","please / you are welcome"],["Ja","yes"],["Nein","no"]],
+m:"<b>Ich heiße…</b> means my name is… <b>Ich komme aus…</b> means I come from… Use <b>du</b> with friends and <b>Sie</b> with colleagues you do not know well. Start with the Sounds tab.",
+e:[["Hallo, ich heiße Ayu.","Hello, my name is Ayu. Use your own name."],["Ich komme aus Indonesien.","I come from Indonesia."],["Wie heißen Sie?","What is your name? (formal)"],["Freut mich.","Nice to meet you."]],
+q:[["Which greeting is for the morning?",["Guten Abend","Guten Morgen","Tschüss"],1],["Which word means thank you?",["Bitte","Danke","Nein"],1]]},
+{t:"Numbers, time and sein",g:"Count to ten, tell the time, and use the verb to be.",
+v:[["null","0"],["eins","1"],["zwei","2"],["drei","3"],["vier","4"],["fünf","5"],["sechs","6"],["sieben","7"],["acht","8"],["neun","9"],["zehn","10"],["Uhr","o’clock"]],
+m:"<b>sein</b> (to be): ich bin, du bist, er/sie ist, wir sind, ihr seid, sie/Sie sind. Time: <b>Es ist drei Uhr.</b> Days: Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag.",
+e:[["Ich bin im Büro.","I am in the office."],["Es ist neun Uhr.","It is nine o’clock."],["Heute ist Montag.","Today is Monday."],["Das Meeting ist um zehn Uhr.","The meeting is at ten."]],
+q:[["sieben means…",["6","7","8"],1],["Ich ___ im Büro.",["bist","bin","ist"],1]]},
+{t:"Nouns and haben",g:"Name things at work and know der, die, das.",
+v:[["das Büro","office"],["der Computer","computer"],["die E-Mail","email"],["der Termin","appointment"],["die Firma","company"],["der Kollege","colleague (m)"],["die Kollegin","colleague (f)"],["der Chef","boss"],["das Telefon","phone"],["die Arbeit","work"]],
+m:"Every noun is <b>der</b> (m), <b>die</b> (f) or <b>das</b> (n). Always learn the article with the noun, and write nouns with a capital letter. <b>haben</b>: ich habe, du hast, er/sie hat, wir haben, ihr habt, sie/Sie haben.",
+e:[["Das ist das Büro.","This is the office."],["Das ist die Firma.","This is the company."],["Ich habe Zeit.","I have time."],["Er hat Zeit.","He has time."]],
+q:[["Which article: ___ Büro",["der","die","das"],2],["Er ___ Zeit.",["hat","habe","haben"],0]]},
+{t:"Verbs and questions",g:"Say what you do and ask simple questions.",
+v:[["arbeiten","to work"],["machen","to do, make"],["lernen","to learn"],["wohnen","to live"],["sprechen","to speak"],["kommen","to come"],["trinken","to drink"],["verstehen","to understand"]],
+m:"Drop <b>-en</b> and add: ich <b>-e</b>, du <b>-st</b>, er/sie <b>-t</b>, wir <b>-en</b>, ihr <b>-t</b>, sie/Sie <b>-en</b>. The verb is in position 2: <b>Ich wohne hier.</b> <b>sprechen</b> changes: du sprichst. Question words: <b>Wer? Was? Wo? Wann? Wie?</b> Yes/no questions start with the verb: <b>Arbeitest du hier?</b>",
+e:[["Ich arbeite hier.","I work here."],["Wo wohnst du?","Where do you live?"],["Was machen Sie?","What do you do? (formal)"],["Sprechen Sie Englisch?","Do you speak English?"]],
+q:[["du ___ (machen)",["mache","machst","macht"],1],["Wo means…",["who","where","when"],1]]},
+{t:"Negation and accusative",g:"Say what you need and what you do not have.",
+v:[["nicht","not"],["kein","no, not a"],["brauchen","to need"],["der Stift","pen"],["der Laptop","laptop"],["die Tasche","bag"],["das Buch","book"],["das Wasser","water"],["der Kaffee","coffee"],["die Zeit","time"]],
+m:"<b>kein</b> negates a noun: <b>Ich habe keine Zeit.</b> <b>nicht</b> negates a verb or adjective: <b>Ich arbeite nicht.</b> Accusative (the thing you need or have): only masculine changes. <b>der → den</b>, <b>ein → einen</b>, <b>kein → keinen</b>. Die, das, eine and ein stay the same.",
+e:[["Ich brauche einen Stift.","I need a pen."],["Ich habe keine Zeit.","I have no time."],["Ich trinke keinen Kaffee.","I do not drink coffee."],["Das ist nicht gut.","That is not good."]],
+q:[["Ich brauche ___ Laptop (der).",["ein","einen","eine"],1],["Ich habe ___ Zeit. (no time)",["nicht","kein","keine"],2]]},
+{t:"Modal verbs and polite requests",g:"Ask for things politely and say what you can, must and want.",
+v:[["können","can"],["müssen","must"],["wollen","to want"],["möchten","would like"],["helfen","to help"],["schreiben","to write"],["wiederholen","to repeat"],["langsam","slow"]],
+m:"The modal verb is in position 2 and the main verb goes to the end: <b>Ich kann Deutsch sprechen.</b> ich kann / du kannst; ich muss / du musst; ich will / du willst; ich möchte / du möchtest. Polite request: <b>Können Sie das bitte wiederholen?</b>",
+e:[["Ich möchte einen Termin.","I would like an appointment."],["Können Sie das wiederholen?","Can you repeat that?"],["Ich muss arbeiten.","I have to work."],["Können Sie langsamer sprechen?","Can you speak more slowly?"]],
+q:[["Ich ___ einen Kaffee.",["möchte","möchten","möchtest"],0],["Ich kann Deutsch ___.",["sprechen","spreche","sprichst"],0]]},
+{t:"Separable verbs and routine",g:"Describe your workday and times.",
+v:[["aufstehen","to get up"],["anfangen","to begin"],["aufhören","to stop"],["anrufen","to call"],["einkaufen","to shop"],["ankommen","to arrive"],["früh","early"],["spät","late"]],
+m:"The prefix jumps to the end: <b>Ich stehe um sieben Uhr auf.</b> <b>Ich fange um acht Uhr an.</b> With a modal, the verb stays whole: <b>Ich muss früh aufstehen.</b> Time: <b>um acht Uhr</b> means at eight.",
+e:[["Ich stehe um sieben Uhr auf.","I get up at seven."],["Die Arbeit fängt um acht Uhr an.","Work starts at eight."],["Ich rufe dich an.","I will call you."],["Ich muss früh aufstehen.","I have to get up early."]],
+q:[["Which sentence is correct?",["Ich fange um 8 Uhr an.","Ich anfange um 8 Uhr.","Ich an fange um 8 Uhr."],0],["früh means…",["late","early","now"],1]]},
+{t:"Phone and email",g:"Answer a call and write a short formal email.",
+v:[["Hier spricht…","This is… speaking"],["Einen Moment, bitte","One moment, please"],["Auf Wiederhören","goodbye (phone)"],["die Nachricht","message"],["der Anhang","attachment"],["Sehr geehrte Damen und Herren","Dear Sir or Madam"],["Mit freundlichen Grüßen","Kind regards"],["die Nummer","number"]],
+m:"A formal email has a greeting, your reason in one sentence, and a closing: <b>Sehr geehrter Herr Müller,</b> … <b>Mit freundlichen Grüßen</b>. On the phone, say your name first: <b>Guten Tag, hier spricht…</b>",
+e:[["Guten Tag, hier spricht Ayu.","Hello, this is Ayu speaking."],["Ich möchte einen Termin machen.","I would like to make an appointment."],["Einen Moment, bitte.","One moment, please."],["Ich schicke Ihnen eine E-Mail.","I will send you an email."]],
+q:[["Which closing is formal?",["Tschüss","Mit freundlichen Grüßen","Hallo"],1],["Einen Moment, bitte means…",["One moment, please","See you","Thank you"],0]]},
+{t:"Places and directions",g:"Ask where things are and understand directions.",
+v:[["links","left"],["rechts","right"],["geradeaus","straight ahead"],["der Bahnhof","station"],["die Haltestelle","bus stop"],["die Toilette","toilet"],["der Bus","bus"],["die Straße","street"]],
+m:"<b>Wo ist…?</b> means where is…? <b>Wie komme ich zum Bahnhof?</b> zu + dem = <b>zum</b> (der and das words), zu + der = <b>zur</b> (die words). Directions: <b>Gehen Sie geradeaus, dann links.</b>",
+e:[["Wo ist die Toilette?","Where is the toilet?"],["Wie komme ich zum Bahnhof?","How do I get to the station?"],["Gehen Sie geradeaus, dann links.","Go straight, then left."],["Die Haltestelle ist rechts.","The stop is on the right."]],
+q:[["links means…",["left","right","straight"],0],["Wie komme ich ___ Haltestelle?",["zum","zur","zu den"],1]]},
+{t:"Shopping and prices",g:"Ask prices, count to 100, and pay.",
+v:[["Was kostet das?","How much is that?"],["der Euro","euro"],["bar","cash"],["die Karte","card"],["Ich nehme das.","I will take that."],["die Rechnung","bill"],["zwanzig","20"],["hundert","100"]],
+m:"11 elf, 12 zwölf, 13 dreizehn … 19 neunzehn. Tens end in <b>-zig</b>: zwanzig, dreißig, vierzig. 21 is <b>einundzwanzig</b> (one-and-twenty). <b>Ich zahle bar / mit Karte.</b>",
+e:[["Was kostet das?","How much is that?"],["Das kostet zwölf Euro.","That costs twelve euros."],["Ich nehme das.","I will take that."],["Ich zahle mit Karte.","I pay by card."]],
+q:[["einundzwanzig =",["12","21","41"],1],["bar means…",["cash","card","bill"],0]]},
+{t:"Writing and forms",g:"Fill in a form and write a short message.",
+v:[["der Vorname","first name"],["der Nachname","surname"],["die Adresse","address"],["das Geburtsdatum","date of birth"],["die Telefonnummer","phone number"],["der Beruf","job"],["das Land","country"],["unterschreiben","to sign"]],
+m:"Forms ask: <b>Name, Adresse, Telefonnummer, Beruf.</b> Write every noun with a capital letter. A short message has a greeting, one sentence of reason, thanks, and a closing. <b>Mein Beruf ist…</b> means my job is…",
+e:[["Mein Vorname ist Ayu.","My first name is Ayu. Use yours."],["Ich wohne in Indonesien.","I live in Indonesia."],["Meine Telefonnummer ist…","My phone number is…"],["Bitte unterschreiben Sie hier.","Please sign here."]],
+q:[["Nachname means…",["first name","surname","address"],1],["Which is written correctly?",["Ich habe einen termin.","Ich habe einen Termin.","ich habe einen Termin."],1]]},
+{t:"Review and mock test",g:"Combine everything and prepare for the Goethe A1 exam.",
+v:[["Wie geht’s?","How are you?"],["Gut, danke.","Fine, thanks."],["Wie bitte?","Pardon?"],["Ich verstehe nicht.","I do not understand."],["Entschuldigung","excuse me, sorry"],["Können Sie das bitte wiederholen?","Can you repeat that, please?"]],
+m:"The Goethe-Zertifikat A1: Start Deutsch 1 has four parts: Lesen (reading, about 25 min), Hören (listening, about 20 min), Schreiben (writing, about 20 min), Sprechen (speaking, about 15 min). Pass mark is 60 of 100 points. Do the free official sample test on the Goethe-Institut site and fix weak areas.",
+e:[["Mein Name ist Ayu, ich komme aus Indonesien.","My name is Ayu, I come from Indonesia. Use yours."],["Ich wohne in … und arbeite bei …","I live in … and work at …"],["Ich lerne seit drei Monaten Deutsch.","I have been learning German for three months."],["Ich möchte einen Kaffee, bitte.","I would like a coffee, please."]],
+q:[["Wie geht’s? means…",["How are you?","Where is it?","How much?"],0],["Pass mark in the Goethe A1 exam:",["40 points","60 points","90 points"],1]]}
 ];
-const SOUNDS=[
+const X=[
+{v:[["Herr","Mr"],["Frau","Mrs, Ms"],["Willkommen","welcome"],["Bis morgen","see you tomorrow"]],d:[["Guten Morgen, Frau Weber.","A: Good morning, Ms Weber."],["Guten Morgen! Wie heißen Sie?","B: Good morning! What is your name?"],["Ich heiße Ayu. Ich komme aus Indonesien.","A: My name is Ayu. I come from Indonesia."],["Freut mich. Willkommen!","B: Nice to meet you. Welcome!"]],q:[["Which is the formal goodbye?",["Tschüss","Auf Wiedersehen","Hallo"],1],["Willkommen means…",["welcome","thanks","sorry"],0]]},
+{v:[["Montag","Monday"],["Dienstag","Tuesday"],["Freitag","Friday"],["heute","today"]],d:[["Wie spät ist es?","A: What time is it?"],["Es ist zehn Uhr.","B: It is ten o’clock."],["Wann ist das Meeting?","A: When is the meeting?"],["Das Meeting ist am Freitag um drei Uhr.","B: The meeting is on Friday at three."]],q:[["Wie spät ist es? means…",["What time is it?","Where is it?","Who is it?"],0],["heute means…",["today","tomorrow","late"],0]]},
+{v:[["die Besprechung","meeting"],["der Drucker","printer"],["das Passwort","password"],["die Kollegen","colleagues (plural)"]],d:[["Hallo, das ist Tom. Er ist mein Kollege.","A: Hello, this is Tom. He is my colleague."],["Guten Tag, Tom. Haben Sie Zeit?","B: Hello, Tom. Do you have time?"],["Ja, ich habe Zeit.","C: Yes, I have time."],["Gut. Das ist das Büro von Frau Weber.","B: Good. This is Ms Weber’s office."]],q:[["Which article: ___ Drucker (printer)",["der","die","das"],0],["die Kollegen is…",["singular","plural","a question"],1]]},
+{v:[["gehen","to go"],["fragen","to ask"],["antworten","to answer"],["telefonieren","to make calls"]],d:[["Wo arbeiten Sie?","A: Where do you work?"],["Ich arbeite bei einer Firma in Berlin.","B: I work at a company in Berlin."],["Sprechen Sie Englisch?","A: Do you speak English?"],["Ja, und ich lerne Deutsch.","B: Yes, and I am learning German."]],q:[["er ___ (arbeiten)",["arbeite","arbeitet","arbeitest"],1],["Sprechen Sie Englisch? is a…",["yes/no question","W-question","command"],0]]},
+{v:[["der Ausweis","ID card"],["der Schlüssel","key"],["das Papier","paper"],["der Tee","tea"]],d:[["Haben Sie einen Stift?","A: Do you have a pen?"],["Nein, ich habe keinen Stift.","B: No, I do not have a pen."],["Ich brauche auch Papier.","A: I also need paper."],["Das ist kein Problem.","B: That is no problem."]],q:[["Ich habe ___ Schlüssel (der, negated).",["kein","keinen","keine"],1],["Which article: ___ Papier",["der","die","das"],2]]},
+{v:[["dürfen","to be allowed to"],["sollen","should"],["vielleicht","maybe"],["gern","gladly"]],d:[["Können Sie mir helfen?","A: Can you help me?"],["Ja, gern. Was möchten Sie?","B: Yes, gladly. What would you like?"],["Ich möchte einen Termin machen.","A: I would like to make an appointment."],["Sie müssen Frau Weber anrufen.","B: You have to call Ms Weber."]],q:[["Können Sie mir helfen? means…",["Can you help me?","Do you know me?","Are you here?"],0],["Ich muss ___.",["gehen","gehe","gehst"],0]]},
+{v:[["frühstücken","to have breakfast"],["die Mittagspause","lunch break"],["der Feierabend","end of the workday"],["morgens","in the morning"]],d:[["Wann fängt die Arbeit an?","A: When does work start?"],["Um acht Uhr. Ich stehe um sechs Uhr auf.","B: At eight. I get up at six."],["Und wann ist Feierabend?","A: And when is the end of the workday?"],["Um siebzehn Uhr.","B: At five p.m. (17:00)"]],q:[["Feierabend means…",["end of the workday","lunch","weekend"],0],["Die Arbeit ___ um 8 Uhr ___.",["fängt … an","anfängt … ","an … fängt"],0]]},
+{v:[["die Antwort","answer"],["das Problem","problem"],["zurückrufen","to call back"],["leider","unfortunately"]],d:[["Firma Weber, guten Tag.","A: Weber company, hello."],["Guten Tag, hier spricht Ayu. Ist Herr Müller da?","B: Hello, this is Ayu. Is Mr Müller there?"],["Einen Moment, bitte. Leider ist er nicht da.","A: One moment, please. Unfortunately he is not here."],["Können Sie bitte zurückrufen? Danke. Auf Wiederhören.","B: Can you call back, please? Thanks. Goodbye."]],q:[["leider means…",["unfortunately","luckily","later"],0],["Auf Wiederhören is used…",["on the phone","in an email","at a store"],0]]},
+{v:[["die U-Bahn","subway"],["das Taxi","taxi"],["weit","far"],["nah","near"]],d:[["Entschuldigung, wo ist der Bahnhof?","A: Excuse me, where is the station?"],["Gehen Sie geradeaus und dann rechts.","B: Go straight and then right."],["Ist das weit?","A: Is that far?"],["Nein, nur fünf Minuten.","B: No, only five minutes."]],q:[["weit means…",["far","near","left"],0],["Wo ist der Bahnhof? asks…",["where something is","what time it is","how much it costs"],0]]},
+{v:[["billig","cheap"],["teuer","expensive"],["das Geld","money"],["das Wechselgeld","change (coins)"]],d:[["Guten Tag. Was kostet das Brot?","A: Hello. How much is the bread?"],["Das kostet drei Euro.","B: It costs three euros."],["Das ist nicht teuer. Ich nehme das.","A: That is not expensive. I will take it."],["Bar oder mit Karte?","B: Cash or card?"]],q:[["teuer means…",["cheap","expensive","fast"],1],["dreißig =",["13","30","33"],1]]},
+{v:[["das Formular","form"],["die Unterschrift","signature"],["das Datum","date"],["verheiratet","married"]],d:[["Wie ist Ihr Nachname?","A: What is your surname?"],["Mein Nachname ist …","B: My surname is … (say yours)"],["Und Ihre Telefonnummer?","A: And your phone number?"],["Meine Nummer ist null acht eins zwei …","B: My number is zero eight one two …"]],q:[["das Formular means…",["form","phone","street"],0],["Unterschrift means…",["signature","address","job"],0]]},
+{v:[["Ich weiß nicht.","I do not know."],["Noch einmal, bitte.","Once more, please."],["Alles klar.","All right, understood."],["Viel Erfolg!","Good luck!"]],d:[["Guten Tag. Wie heißen Sie?","Examiner: Hello. What is your name?"],["Ich heiße … Ich komme aus Indonesien.","You: My name is … I come from Indonesia."],["Was sind Sie von Beruf?","Examiner: What is your job?"],["Ich arbeite bei … Ich lerne Deutsch für die Arbeit.","You: I work at … I am learning German for work."]],q:[["Noch einmal, bitte means…",["Once more, please","Thank you","Excuse me"],0],["Was sind Sie von Beruf? asks about your…",["job","address","age"],0]]}
+];
+const S=[
 ["ä","like “e” in bed, but longer",[["Männer","men"],["spät","late"]]],
 ["ö","say “e”, round your lips",[["schön","beautiful"],["Köln","Cologne"]]],
 ["ü","say “ee”, round your lips",[["über","over"],["Büro","office"]]],
 ["ß","just a sharp “ss”",[["Straße","street"],["heißen","to be called"]]],
 ["ch after e, i, ä, ö, ü","soft hiss, like a cat",[["ich","I"],["Mädchen","girl"]]],
 ["ch after a, o, u","rough, from the throat",[["Buch","book"],["acht","eight"]]],
-["r","soft, in the throat (like gargling lightly); at word end almost “a”",[["rot","red"],["Arbeit","work"]]],
+["r","soft, in the throat; at word end almost “a”",[["rot","red"],["Arbeit","work"]]],
 ["z","always “ts”",[["Zeit","time"],["zwei","two"]]],
 ["w","sounds like English “v”",[["Wasser","water"],["wann","when"]]],
 ["v","usually like English “f”",[["Vater","father"],["viel","much"]]],
@@ -122,49 +170,51 @@ const SOUNDS=[
 ["eu / äu","like “oy”",[["heute","today"],["Deutsch","German"]]],
 ["sch","like English “sh”",[["Schule","school"],["schnell","fast"]]]
 ];
-const CARDS=[
-["Guten Morgen","Good morning"],["Guten Tag","Hello (daytime, formal)"],["Auf Wiedersehen","Goodbye"],
-["Ich heiße Ayu.","My name is Ayu. (use your own name)"],["Ich arbeite bei…","I work at…"],["Freut mich.","Nice to meet you."],
-["Wie bitte?","Pardon?"],["Können Sie das wiederholen?","Can you repeat that?"],["Langsamer, bitte.","Slower, please."],
-["Ich verstehe nicht.","I do not understand."],["Ich lerne Deutsch.","I am learning German."],["Wie schreibt man das?","How do you spell that?"],
-["Haben Sie einen Termin?","Do you have an appointment?"],["Ich habe um drei Uhr einen Termin.","I have an appointment at 3."],
-["Das Meeting beginnt um zehn Uhr.","The meeting starts at 10."],["Ich schicke Ihnen eine E-Mail.","I will send you an email."],
-["Wo ist das Büro?","Where is the office?"],["Entschuldigung","Excuse me / Sorry"],["Vielen Dank","Thank you very much"],
-["Bitte schön","You are welcome / Here you go"],["Kein Problem.","No problem."],["Bis morgen.","See you tomorrow."],
-["Mit freundlichen Grüßen","Kind regards (formal)"],["Ich bin in einer Besprechung.","I am in a meeting."]
-];
-const sk="g-a1-done";let done=[];
+const $=id=>document.getElementById(id);
+const sk="g-a1-course-done";let done=[];
 try{done=JSON.parse(localStorage.getItem(sk)||"[]")}catch(e){}
 function save(){try{localStorage.setItem(sk,JSON.stringify(done))}catch(e){}}
 let voice=null;
-function pickVoice(){const v=(window.speechSynthesis&&speechSynthesis.getVoices())||[];voice=v.find(x=>x.lang&&x.lang.toLowerCase().startsWith("de"))||null;document.getElementById("novoice").hidden=!!voice||!window.speechSynthesis||!v.length}
+function pickVoice(){const v=(window.speechSynthesis&&speechSynthesis.getVoices())||[];voice=v.find(x=>x.lang&&x.lang.toLowerCase().startsWith("de"))||null;$("novoice").hidden=!!voice||!window.speechSynthesis||!v.length}
 if(window.speechSynthesis){pickVoice();speechSynthesis.onvoiceschanged=pickVoice}
 function say(t){if(!window.speechSynthesis)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="de-DE";if(voice)u.voice=voice;u.rate=.85;speechSynthesis.speak(u)}catch(e){}}
-function renderWeeks(){
-const box=document.getElementById("weeks");box.innerHTML="";
-WEEKS.forEach((w,i)=>{
-const d=document.createElement("details");d.className="week"+(done.includes(i)?" done":"");
-d.innerHTML='<summary><input type="checkbox" aria-label="Week '+(i+1)+' done" '+(done.includes(i)?"checked":"")+'><span class="wk">Week '+(i+1)+'</span><span class="wt">'+w[0]+'</span></summary><div class="body">'+w[1]+'</div>';
-d.querySelector("input").addEventListener("click",e=>{e.stopPropagation();const k=done.indexOf(i);k<0?done.push(i):done.splice(k,1);save();renderWeeks()});
-box.appendChild(d)});
-document.getElementById("pct").textContent=done.length+" of 12 weeks";
-document.getElementById("fill").style.width=(done.length/12*100)+"%";
+function sayBtn(de,en){const b=document.createElement("button");b.className="say";b.innerHTML=de+(en?"<small>"+en+"</small>":"");b.onclick=()=>say(de);return b}
+function home(){
+$("lesson").hidden=true;$("home").hidden=false;
+$("pct").textContent=done.length+" of 12 weeks done";$("fill").style.width=(done.length/12*100)+"%";
+const l=$("list");l.innerHTML="";
+W.forEach((w,i)=>{const b=document.createElement("button");b.className="wk"+(done.includes(i)?" done":"");b.innerHTML="<b>Week "+(i+1)+"</b><span>"+w.t+"</span>";b.onclick=()=>open(i);l.appendChild(b)});
+window.scrollTo(0,0);
 }
-const sg=document.getElementById("sgrid");
-SOUNDS.forEach(s=>{const c=document.createElement("div");c.className="snd";
-c.innerHTML='<div class="l">'+s[0].split(" ")[0]+'</div><div class="h">'+s[0]+': '+s[1]+'</div><div class="w"></div>';
-s[2].forEach(x=>{const b=document.createElement("button");b.className="say";b.innerHTML=x[0]+' <small>'+x[1]+'</small>';b.onclick=()=>say(x[0]);c.querySelector(".w").appendChild(b)});
-sg.appendChild(c)});
-let ci=0,flip=false;const card=document.getElementById("card");
-function drawCard(){const c=CARDS[ci];card.innerHTML='<div class="de">'+c[0]+'</div>'+(flip?'<div class="en">'+c[1]+'</div>':'<div class="hint">Tap to see the English</div>');document.getElementById("cnt").textContent=(ci+1)+" / "+CARDS.length}
-card.onclick=()=>{flip=!flip;drawCard()};
-document.getElementById("next").onclick=()=>{ci=(ci+1)%CARDS.length;flip=false;drawCard()};
-document.getElementById("prev").onclick=()=>{ci=(ci-1+CARDS.length)%CARDS.length;flip=false;drawCard()};
-document.getElementById("cs").onclick=()=>say(CARDS[ci][0]);
-document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{
-document.querySelectorAll("nav button").forEach(x=>x.setAttribute("aria-selected",x===b));
-["plan","sound","cards"].forEach(id=>document.getElementById(id).hidden=(id!==b.dataset.t))});
-renderWeeks();drawCard();
+function open(i){
+const w=Object.assign({},W[i]),L=$("lesson");w.v=w.v.concat(X[i].v);w.q=w.q.concat(X[i].q);$("home").hidden=true;L.hidden=false;L.innerHTML="";
+const add=h=>{const d=document.createElement("div");d.innerHTML=h;L.appendChild(d.firstElementChild||d);return L.lastChild};
+add('<button class="btn" id="back">All weeks</button>');
+add('<h2>Week '+(i+1)+': '+w.t+'</h2>');
+add('<p class="sub">Goal: '+w.g+'</p>');
+add('<h3>1. Words to learn. Tap to hear, then say each one aloud.</h3>');
+const wd=add('<div class="words"></div>');w.v.forEach(x=>wd.appendChild(sayBtn(x[0],x[1])));
+add('<h3>2. Grammar</h3>');add('<div class="box">'+w.m+'</div>');
+add('<h3>3. Say it aloud</h3>');
+w.e.forEach(x=>{const r=add('<div class="ex"><span>'+x[1]+'</span></div>');r.insertBefore(sayBtn(x[0]),r.firstChild)});
+add('<h3>4. Mini dialogue. Read both parts aloud.</h3>');
+X[i].d.forEach(x=>{const r=add('<div class="ex"><span>'+x[1]+'</span></div>');r.insertBefore(sayBtn(x[0]),r.firstChild)});
+add('<h3>5. Quick quiz</h3>');
+let sc=0,an=0;const res=add('<p class="sub" id="res"></p>');
+w.q.forEach(q=>{const c=add('<div class="q"><p>'+q[0]+'</p></div>');
+q[1].forEach((o,k)=>{const b=document.createElement("button");b.className="opt";b.textContent=o;
+b.onclick=()=>{if(c.dataset.d)return;c.dataset.d=1;an++;const ok=k===q[2];if(ok)sc++;b.classList.add(ok?"ok":"bad");if(!ok)c.querySelectorAll(".opt")[q[2]].classList.add("ok");
+if(an===w.q.length)$("res").textContent="Score: "+sc+" of "+w.q.length+(sc===w.q.length?". Well done!":". Review the words and try again next day.")};c.appendChild(b)})});
+const r=add('<div class="row"></div>');
+const dn=document.createElement("button");dn.className="btn main";dn.textContent=done.includes(i)?"Marked done (tap to undo)":"Mark week done";
+dn.onclick=()=>{const k=done.indexOf(i);k<0?done.push(i):done.splice(k,1);save();dn.textContent=done.includes(i)?"Marked done (tap to undo)":"Mark week done"};r.appendChild(dn);
+if(i<11){const n=document.createElement("button");n.className="btn";n.textContent="Next week";n.onclick=()=>open(i+1);r.appendChild(n)}
+$("back").onclick=home;window.scrollTo(0,0);
+}
+const sg=$("sgrid");
+S.forEach(s=>{const c=document.createElement("div");c.className="snd";c.innerHTML='<div class="l">'+s[0].split(" ")[0]+'</div><div class="h">'+s[0]+': '+s[1]+'</div><div class="w"></div>';s[2].forEach(x=>c.querySelector(".w").appendChild(sayBtn(x[0],x[1])));sg.appendChild(c)});
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("nav button").forEach(x=>x.setAttribute("aria-selected",x===b));$("course").hidden=b.dataset.t!=="course";$("sound").hidden=b.dataset.t!=="sound"});
+home();
 </script>
 </body>
 </html>
