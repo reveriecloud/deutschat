@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>German A1 for Work</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f4;--card:#fff;--ink:#14213d;--mute:#5b6678;--line:#d3d9e1;--acc:#ffc400;--accink:#14213d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1624;--card:#18233a;--ink:#eef1f6;--mute:#9aa6bb;--line:#2b3955;--acc:#ffc400;--accink:#14213d}}
+:root[data-theme="dark"]{--bg:#0f1624;--card:#18233a;--ink:#eef1f6;--mute:#9aa6bb;--line:#2b3955;--acc:#ffc400;--accink:#14213d}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Archivo,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+main{max-width:720px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:clamp(28px,6vw,40px);font-weight:800;margin:8px 0 4px;letter-spacing:-.02em}
+.sub{color:var(--mute);margin:0 0 18px;max-width:60ch}
+nav{display:flex;gap:6px;margin-bottom:18px;border-bottom:2px solid var(--line)}
+nav button{flex:1;background:none;border:0;color:var(--mute);font:600 15px/1 Archivo,system-ui,sans-serif;padding:12px 4px;cursor:pointer;border-bottom:4px solid transparent;margin-bottom:-2px}
+nav button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--acc)}
+button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.bar{height:10px;background:var(--line);border-radius:5px;overflow:hidden;margin:6px 0 4px}
+.bar i{display:block;height:100%;background:var(--acc);width:0;transition:width .3s}
+.week{background:var(--card);border:1px solid var(--line);border-radius:10px;margin:0 0 10px}
+.week summary{list-style:none;cursor:pointer;display:flex;gap:12px;align-items:center;padding:14px}
+.week summary::-webkit-details-marker{display:none}
+.week input{width:22px;height:22px;accent-color:#14213d;flex:none}
+.wk{font-weight:800;min-width:56px}
+.wt{font-weight:600}
+.week .body{padding:0 14px 14px 48px;color:var(--mute);font-size:15px}
+.week .body b{color:var(--ink)}
+.week.done .wt{text-decoration:line-through;color:var(--mute)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.snd{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+.snd .l{font-size:30px;font-weight:800;line-height:1}
+.snd .h{color:var(--mute);font-size:14px;margin:6px 0 10px}
+.snd .w{display:flex;flex-wrap:wrap;gap:6px}
+.say{background:var(--acc);color:var(--accink);border:0;border-radius:6px;padding:7px 10px;font:600 14px Archivo,system-ui,sans-serif;cursor:pointer}
+.say small{font-weight:400;opacity:.8}
+.note{background:var(--card);border-left:4px solid var(--acc);padding:12px 14px;border-radius:0 8px 8px 0;margin:0 0 16px;font-size:15px}
+.fc{background:var(--card);border:1px solid var(--line);border-radius:14px;min-height:190px;padding:24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;width:100%;color:var(--ink);font:inherit}
+.fc .de{font-size:clamp(24px,5vw,32px);font-weight:800}
+.fc .en{font-size:20px;color:var(--mute)}
+.fc .hint{font-size:13px;color:var(--mute);margin-top:14px}
+.row{display:flex;gap:8px;margin-top:12px;align-items:center;flex-wrap:wrap}
+.row button{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px 14px;font:600 14px Archivo,system-ui,sans-serif;cursor:pointer}
+.row .say{border:0;background:var(--acc);color:var(--accink)}
+.cnt{margin-left:auto;color:var(--mute);font-size:14px}
+[hidden]{display:none!important}
+.tips li{margin:6px 0}
+</style>
+</head>
+<body>
+<main>
+<h1>German A1 for work</h1>
+<p class="sub">12 weeks, about 45 minutes a day. Tick each week when done. Tap any yellow button to hear it spoken.</p>
+<nav role="tablist">
+<button role="tab" aria-selected="true" data-t="plan">Plan</button>
+<button role="tab" aria-selected="false" data-t="sound">Pronunciation</button>
+<button role="tab" aria-selected="false" data-t="cards">Work phrases</button>
+</nav>
+
+<section id="plan">
+<div><b id="pct">0 of 12 weeks</b><div class="bar"><i id="fill"></i></div></div>
+<div id="weeks" style="margin-top:14px"></div>
+<h2 style="font-size:18px;margin:24px 0 6px">Daily 45 minutes</h2>
+<ul class="tips">
+<li><b>20 min</b> lesson: DW Nicos Weg (A1) or the week’s topic.</li>
+<li><b>10 min</b> flashcards: Anki or the Work phrases tab. Always learn nouns with der/die/das.</li>
+<li><b>10 min</b> speak aloud: repeat phrases, shadow Easy German videos.</li>
+<li><b>5 min</b> write 3 sentences about your workday.</li>
+</ul>
+</section>
+
+<section id="sound" hidden>
+<p class="note">German is mostly spelled the way it sounds. Learn these rules once and you can read almost any word. Rough English hints are approximate; listen and copy.</p>
+<div class="grid" id="sgrid"></div>
+<p class="note" style="margin-top:16px" id="novoice" hidden>No German voice found on this device. Install a German voice in your system speech settings, or listen on Forvo or DW Learn German.</p>
+</section>
+
+<section id="cards" hidden>
+<button class="fc" id="card" aria-live="polite"></button>
+<div class="row">
+<button id="prev">Back</button>
+<button id="next">Next</button>
+<button class="say" id="cs">Hear it</button>
+<span class="cnt" id="cnt"></span>
+</div>
+</section>
+</main>
+
+<script>
+const WEEKS=[
+["Sounds and greetings","Alphabet, umlauts, ch, r. <b>Hallo, ich heiße… Ich komme aus Indonesien. Freut mich.</b> Spell your name aloud."],
+["Numbers, time, days","Numbers 0–100, days, months, clock time. <b>Es ist neun Uhr.</b> Verb <b>sein</b>: ich bin, du bist, er ist."],
+["Nouns and articles","der / die / das, plural basics, <b>haben</b>. Office words: der Computer, die E-Mail, das Büro, der Termin."],
+["Verbs and questions","Regular present tense, verb in position 2. W-questions: <b>Wer? Was? Wo? Wann? Wie?</b> Describe your job."],
+["Negation and accusative","<b>nicht</b> vs <b>kein</b>. Accusative: <b>Ich brauche einen Stift.</b> Ordering a drink or lunch."],
+["Modal verbs and polite requests","<b>können, müssen, wollen, möchten.</b> <b>Können Sie das wiederholen?</b> <b>Ich möchte einen Termin.</b>"],
+["Separable verbs and routine","<b>aufstehen, anfangen, anrufen.</b> Daily schedule at work: <b>Ich fange um 8 Uhr an.</b>"],
+["Phone and email basics","Answering a call, spelling names, short emails. <b>Guten Tag, hier spricht…</b> <b>Mit freundlichen Grüßen.</b>"],
+["Places and directions","Left, right, straight; transport; <b>Wo ist die Toilette?</b> <b>Wie komme ich zum Bahnhof?</b>"],
+["Shopping and prices","Euro prices, food, quantities. <b>Was kostet das?</b> <b>Ich nehme das.</b> Paying: bar oder mit Karte."],
+["Writing and forms","Fill in a form (Name, Adresse, Geburtsdatum), write a 30-word message, review all grammar."],
+["Mock test and review","Do a full Goethe Start Deutsch 1 sample test (reading, listening, writing, speaking). Fix weak areas."]
+];
+const SOUNDS=[
+["ä","like “e” in bed, but longer",[["Männer","men"],["spät","late"]]],
+["ö","say “e”, round your lips",[["schön","beautiful"],["Köln","Cologne"]]],
+["ü","say “ee”, round your lips",[["über","over"],["Büro","office"]]],
+["ß","just a sharp “ss”",[["Straße","street"],["heißen","to be called"]]],
+["ch after e, i, ä, ö, ü","soft hiss, like a cat",[["ich","I"],["Mädchen","girl"]]],
+["ch after a, o, u","rough, from the throat",[["Buch","book"],["acht","eight"]]],
+["r","soft, in the throat (like gargling lightly); at word end almost “a”",[["rot","red"],["Arbeit","work"]]],
+["z","always “ts”",[["Zeit","time"],["zwei","two"]]],
+["w","sounds like English “v”",[["Wasser","water"],["wann","when"]]],
+["v","usually like English “f”",[["Vater","father"],["viel","much"]]],
+["s before a vowel","like English “z”",[["Sonne","sun"],["sehr","very"]]],
+["sp / st at word start","“shp” and “sht”",[["sprechen","to speak"],["Stunde","hour"]]],
+["ei","like “eye”",[["nein","no"],["Zeit","time"]]],
+["ie","long “ee”",[["Liebe","love"],["Bier","beer"]]],
+["eu / äu","like “oy”",[["heute","today"],["Deutsch","German"]]],
+["sch","like English “sh”",[["Schule","school"],["schnell","fast"]]]
+];
+const CARDS=[
+["Guten Morgen","Good morning"],["Guten Tag","Hello (daytime, formal)"],["Auf Wiedersehen","Goodbye"],
+["Ich heiße Ayu.","My name is Ayu. (use your own name)"],["Ich arbeite bei…","I work at…"],["Freut mich.","Nice to meet you."],
+["Wie bitte?","Pardon?"],["Können Sie das wiederholen?","Can you repeat that?"],["Langsamer, bitte.","Slower, please."],
+["Ich verstehe nicht.","I do not understand."],["Ich lerne Deutsch.","I am learning German."],["Wie schreibt man das?","How do you spell that?"],
+["Haben Sie einen Termin?","Do you have an appointment?"],["Ich habe um drei Uhr einen Termin.","I have an appointment at 3."],
+["Das Meeting beginnt um zehn Uhr.","The meeting starts at 10."],["Ich schicke Ihnen eine E-Mail.","I will send you an email."],
+["Wo ist das Büro?","Where is the office?"],["Entschuldigung","Excuse me / Sorry"],["Vielen Dank","Thank you very much"],
+["Bitte schön","You are welcome / Here you go"],["Kein Problem.","No problem."],["Bis morgen.","See you tomorrow."],
+["Mit freundlichen Grüßen","Kind regards (formal)"],["Ich bin in einer Besprechung.","I am in a meeting."]
+];
+const sk="g-a1-done";let done=[];
+try{done=JSON.parse(localStorage.getItem(sk)||"[]")}catch(e){}
+function save(){try{localStorage.setItem(sk,JSON.stringify(done))}catch(e){}}
+let voice=null;
+function pickVoice(){const v=(window.speechSynthesis&&speechSynthesis.getVoices())||[];voice=v.find(x=>x.lang&&x.lang.toLowerCase().startsWith("de"))||null;document.getElementById("novoice").hidden=!!voice||!window.speechSynthesis||!v.length}
+if(window.speechSynthesis){pickVoice();speechSynthesis.onvoiceschanged=pickVoice}
+function say(t){if(!window.speechSynthesis)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="de-DE";if(voice)u.voice=voice;u.rate=.85;speechSynthesis.speak(u)}catch(e){}}
+function renderWeeks(){
+const box=document.getElementById("weeks");box.innerHTML="";
+WEEKS.forEach((w,i)=>{
+const d=document.createElement("details");d.className="week"+(done.includes(i)?" done":"");
+d.innerHTML='<summary><input type="checkbox" aria-label="Week '+(i+1)+' done" '+(done.includes(i)?"checked":"")+'><span class="wk">Week '+(i+1)+'</span><span class="wt">'+w[0]+'</span></summary><div class="body">'+w[1]+'</div>';
+d.querySelector("input").addEventListener("click",e=>{e.stopPropagation();const k=done.indexOf(i);k<0?done.push(i):done.splice(k,1);save();renderWeeks()});
+box.appendChild(d)});
+document.getElementById("pct").textContent=done.length+" of 12 weeks";
+document.getElementById("fill").style.width=(done.length/12*100)+"%";
+}
+const sg=document.getElementById("sgrid");
+SOUNDS.forEach(s=>{const c=document.createElement("div");c.className="snd";
+c.innerHTML='<div class="l">'+s[0].split(" ")[0]+'</div><div class="h">'+s[0]+': '+s[1]+'</div><div class="w"></div>';
+s[2].forEach(x=>{const b=document.createElement("button");b.className="say";b.innerHTML=x[0]+' <small>'+x[1]+'</small>';b.onclick=()=>say(x[0]);c.querySelector(".w").appendChild(b)});
+sg.appendChild(c)});
+let ci=0,flip=false;const card=document.getElementById("card");
+function drawCard(){const c=CARDS[ci];card.innerHTML='<div class="de">'+c[0]+'</div>'+(flip?'<div class="en">'+c[1]+'</div>':'<div class="hint">Tap to see the English</div>');document.getElementById("cnt").textContent=(ci+1)+" / "+CARDS.length}
+card.onclick=()=>{flip=!flip;drawCard()};
+document.getElementById("next").onclick=()=>{ci=(ci+1)%CARDS.length;flip=false;drawCard()};
+document.getElementById("prev").onclick=()=>{ci=(ci-1+CARDS.length)%CARDS.length;flip=false;drawCard()};
+document.getElementById("cs").onclick=()=>say(CARDS[ci][0]);
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{
+document.querySelectorAll("nav button").forEach(x=>x.setAttribute("aria-selected",x===b));
+["plan","sound","cards"].forEach(id=>document.getElementById(id).hidden=(id!==b.dataset.t))});
+renderWeeks();drawCard();
+</script>
+</body>
+</html>
